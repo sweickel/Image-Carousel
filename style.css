@@ -1,0 +1,108 @@
+@media screen and (min-width: 700px) {
+  img {
+    height: 350px;
+    width: auto;
+  }
+
+  #arrow-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  img {
+    height: 225px;
+    width: auto;
+  }
+
+  #arrow-wrapper {
+    display: flex;
+  }
+}
+
+body {
+  background-color: rgb(85, 155, 103);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: auto;
+  margin: 0px;
+}
+
+#carousel-wrapper {
+  background-color: rgba(210, 255, 146, 0.905);
+  height: 350px;
+  width: 100%;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 5px solid black;
+}
+
+#slide-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide {
+  width: 100%;
+  display: none;
+
+  border-bottom: 4px solid black;
+}
+
+img {
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+}
+
+.arrow {
+  height: 50px;
+  width: 75px;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 50%);
+  box-shadow: 1px 1px 2px black;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.arrow:hover {
+  background-color: rgba(85, 155, 103, 50%);
+}
+
+#bears {
+  display: flex;
+  justify-content: center;
+}
+
+#bubble-container {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+}
+
+.bubble {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+  border: 1px solid rgb(84, 84, 84);
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
+.bubble:hover {
+  background-color: rgba(210, 255, 146, 0.905);
+}
