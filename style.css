@@ -2,6 +2,7 @@
   img {
     height: 350px;
     width: auto;
+    border: 4px solid black;
   }
 
   #arrow_wrapper {
@@ -16,6 +17,7 @@
   img {
     height: 225px;
     width: auto;
+    border: 4px solid black;
   }
 
   #arrow_wrapper {
@@ -35,15 +37,15 @@ body {
 }
 
 #carousel_wrapper {
-  background-color: rgba(210, 255, 146, 0.905);
+  background-color: rgba(255, 228, 198, 0.823);
   height: 350px;
   width: 100%;
   margin-top: 100px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   border: 5px solid black;
+  z-index: 10;
 }
 
 #slide_wrapper {
@@ -55,21 +57,33 @@ body {
 }
 
 .slide {
+  display: flex;
   width: 100%;
-  display: none;
+  opacity: 0%;
+  height: 0px;
   justify-content: center;
-  border-bottom: 4px solid black;
-  animation: 3s linear 1.5s running slidein;
-  animation: 3s linear 1.5s running slideout;
 }
 
 .active {
-  display: flex;
+  opacity: 100%;
+  height: auto;
+  width: 100%;
+  animation-duration: 3s;
+  animation-name: slide;
 }
 
-img {
-  border-left: 4px solid black;
-  border-right: 4px solid black;
+@keyframes slide {
+  from {
+    margin-right: 150%;
+    width: 300%;
+    opacity: 0%;
+  }
+
+  to {
+    margin-right: 0%;
+    width: 100%;
+    opacity: 100%;
+  }
 }
 
 .arrow {
@@ -79,31 +93,43 @@ img {
   font-size: 20px;
   font-weight: 500;
   text-align: center;
-  background-color: rgba(255, 255, 255, 50%);
+  background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 1px 1px 2px black;
   border: 1px solid black;
   border-radius: 5px;
 }
 
 .arrow:hover {
-  background-color: rgba(85, 155, 103, 50%);
+  background-color: rgba(255, 233, 110, 0.823);
 }
 
 #bubble_container {
   display: flex;
-  align-self: center;
+  align-self: flex-end;
   justify-content: space-between;
+  top: 475px;
+  position: absolute;
+  margin-left: 46%;
 }
 
 .bubble {
+  background-color: black;
+  height: 15px;
+  width: 15px;
   border-radius: 50%;
-  height: 20px;
-  width: 20px;
+  scale: 75%;
   margin: 5px;
-  border: 1px solid rgb(84, 84, 84);
-  box-shadow: 2px 2px 2px rgb(0, 0, 0);
+  border: none;
 }
 
 .bubble:hover {
-  background-color: rgba(210, 255, 146, 0.905);
+  background-color: rgba(255, 233, 110, 0.823);
+}
+
+.bubble_active {
+  scale: 100%;
+  transform: scale(125%);
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: none;
 }
