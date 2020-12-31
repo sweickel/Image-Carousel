@@ -1,6 +1,7 @@
 let activeSlide = 2;
 let slideArr = [];
 let bubArr = [];
+var timeout
 
 //clears bubbles on bottom and clears img from carousel
 function clearSlides(el) {
@@ -24,6 +25,7 @@ function next() {
         }
         slideArr[activeSlide].classList.add('active');        
         bubArr[activeSlide].classList.add("bubble_active");
+        autoAdvance();
 }
 
 //returns to previous slide and shows bubble on active img
@@ -37,6 +39,7 @@ function last() {
         }
         slideArr[activeSlide].classList.add('active');
         bubArr[activeSlide].classList.add("bubble_active");
+        autoAdvance();
 }
 
 function setListeners() {
@@ -60,6 +63,15 @@ function setListeners() {
         activeSlide = 1;
         next();
     });
+}
+
+function autoAdvance() {
+    resetTimeout();
+    timeout = window.setTimeout(next, 5000);
+}
+
+function resetTimeout() {
+    window.clearTimeout(timeout);
 }
 
 
