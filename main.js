@@ -4,32 +4,37 @@ console.log("app started");
 let activeSlide = 0;
 let slideArr = [];
 
+function clearSlides(el) {
+    slideArr.forEach(el => {        
+        el.classList.remove("active");
+    })
+} 
+
 function next() {
     console.log("button works");
     if (activeSlide >= slideArr.length -1) {
-        activeSlide = 0;
-        slideArr[slideArr.length - 1].classList.remove("active");
+        clearSlides();
+        activeSlide = 0;        
         slideArr[activeSlide].classList.add('active');
     }
         else {
+            clearSlides();
             activeSlide++
-            slideArr[activeSlide].classList.add("active");
-            slideArr[activeSlide-1].classList.remove("active");                   
+            slideArr[activeSlide].classList.add("active");                              
         }
 }
 
 function last() {
     console.log("button works");
     if (activeSlide <= 0) {
+        clearSlides();
         activeSlide = slideArr.length -1;
-        slideArr[0].classList.remove("active");
         slideArr[activeSlide].classList.add('active');
     }
         else {
+            clearSlides();
             activeSlide--
-            slideArr[activeSlide].classList.add("active");
-            slideArr[activeSlide+1].classList.remove("active");
-                   
+            slideArr[activeSlide].classList.add("active");                   
         }
 }
 
