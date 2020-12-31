@@ -1,41 +1,42 @@
-console.log("app started");
-
-
-let activeSlide = 0;
+let activeSlide = 2;
 let slideArr = [];
+let bubArr = [];
 
+//clears bubbles on bottom and clears img from carousel
 function clearSlides(el) {
     slideArr.forEach(el => {        
         el.classList.remove("active");
     })
+
+    bubArr.forEach(el => {
+        el.classList.remove("bubble_active");
+    })
 } 
 
+//advances to next slide and shows bubble on active img
 function next() {
-    console.log("button works");
-    if (activeSlide >= slideArr.length -1) {
-        clearSlides();
-        activeSlide = 0;        
-        slideArr[activeSlide].classList.add('active');
+    clearSlides();
+    if (activeSlide >= slideArr.length -1) {        
+        activeSlide = 0;      
     }
         else {
-            clearSlides();
-            activeSlide++
-            slideArr[activeSlide].classList.add("active");                              
+            activeSlide++;                           
         }
+        slideArr[activeSlide].classList.add('active');        
+        bubArr[activeSlide].classList.add("bubble_active");
 }
 
+//returns to previous slide and shows bubble on active img
 function last() {
-    console.log("button works");
+    clearSlides();
     if (activeSlide <= 0) {
-        clearSlides();
         activeSlide = slideArr.length -1;
-        slideArr[activeSlide].classList.add('active');
     }
         else {
-            clearSlides();
-            activeSlide--
-            slideArr[activeSlide].classList.add("active");                   
+            activeSlide--            
         }
+        slideArr[activeSlide].classList.add('active');
+        bubArr[activeSlide].classList.add("bubble_active");
 }
 
 function setListeners() {
@@ -62,10 +63,11 @@ function setListeners() {
 }
 
 
-
 window.addEventListener("load", (event) => {
     slideArr = document.querySelectorAll("div.slide");
+    bubArr = document.querySelectorAll("button.bubble");
     next();
-    console.log(slideArr);
     setListeners();
 });
+
+
